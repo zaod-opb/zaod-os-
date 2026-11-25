@@ -1,0 +1,24 @@
+:root {
+  --zaod-primary: #6750a4;
+  --zaod-on-primary: #ffffff;
+  --zaod-primary-container: #eaddff;
+  --zaod-on-primary-container: #21005d;
+  --zaod-secondary: #625b71;
+  --zaod-secondary-container: #e8def8;
+  --zaod-surface: #fffbfe;
+  --zaod-surface-container: #f3edf7;
+  --zaod-on-surface: #1d1b20;
+  --zaod-outline: #79747e;
+  --zaod-error: #b3261e;
+  --zaod-radius-sm: 8px;
+  --zaod-radius-md: 12px;
+  --zaod-radius-lg: 16px;
+  --zaod-radius-xl: 28px;
+}
+
+body,
+.zaod-desktop {
+  font-family: "Outfit", "Roboto", system-ui, sans-serif;
+  color: var(--zaod-on-surface);
+  background: var(--zaod-surface);
+}

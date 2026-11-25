@@ -1,0 +1,46 @@
+name: Build ZAOD Linux ISO
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "scripts/**"
+      - "branding/**"
+      - "README.md"
+      - ".github/workflows/build-zaod-linux.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install build tools
+        run: |
+          ./scripts/install_linux_dependencies.sh
+
+      - name: Download fonts and icons
+        run: |
+          ./scripts/fetch_design_assets.sh
+
+      - name: Build ZAOD Linux
+        run: |
+          sudo ./scripts/build_zaod_linux.sh
+
+      - name: Upload ISO artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ZAOD-Linux-bookworm-amd64
+          path: |
+            /workspaces/zaod-linux-output/*.iso
+            /workspaces/zaod-linux-output/*.sha256
+          if-no-files-found: error
+          retention-days: 30
