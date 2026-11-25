@@ -11,5 +11,5 @@ $SUDO apt-get update
 $SUDO apt-get install -y \
   debootstrap live-build isolinux syslinux-common grub-pc-bin grub-efi-amd64-bin \
   xorriso squashfs-tools mtools dosfstools rsync curl wget git xz-utils \
-  python3 python3-pip plymouth plymouth-themes \
+  python3 python3-pip nodejs npm plymouth plymouth-themes \
   debian-archive-keyring debian-keyring

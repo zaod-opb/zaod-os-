@@ -17,6 +17,9 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-24.04
+    container:
+      image: debian:bookworm
+      options: --privileged
     timeout-minutes: 360
 
     steps:
