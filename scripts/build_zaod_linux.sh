@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 DIST="${DIST:-bookworm}"
 ARCH="${ARCH:-amd64}"
 OUTPUT="${OUTPUT:-/workspaces/zaod-linux-output}"
@@ -60,7 +61,7 @@ EOF
 fi
 
 mkdir -p config/includes.chroot/etc/zaod
-cp -a /workspaces/zaod-os-/branding/. config/includes.chroot/etc/zaod/
+cp -a "$ROOT/branding/." config/includes.chroot/etc/zaod/
 
 lb build
 
