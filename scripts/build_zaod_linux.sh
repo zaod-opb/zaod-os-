@@ -29,7 +29,13 @@ lb config \
   --debian-installer live \
   --bootappend-live "boot=live username=zaod components quiet splash" \
   --apt-indices false \
-  --apt-recommends true
+  --apt-recommends true \
+  --mirror-bootstrap "http://deb.debian.org/debian/" \
+  --mirror-chroot "http://deb.debian.org/debian/" \
+  --mirror-binary "http://deb.debian.org/debian/" \
+  --mirror-chroot-security "http://deb.debian.org/debian-security/" \
+  --mirror-binary-security "http://deb.debian.org/debian-security/" \
+  --archive-areas "main contrib non-free non-free-firmware"
 
 cat > config/package-lists/zaod.list.chroot <<EOF
 chromium
